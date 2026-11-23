@@ -1,0 +1,13 @@
+[Unit]
+Description=Restart PowerDevil after resume
+PartOf=graphical-session.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+ExecStart=%h/.local/bin/powerdevil-fix
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session.target
